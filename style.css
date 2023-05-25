@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: white;
+    color: #2a2ad7;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #2a2ad7;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(45deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    color: #2a2ad7;
+}
+
+.slide {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #2a2ad7;
+}
+
+.slide p {
+    font-size: 24px;
+    text-align: center;
+    color: #c11fa3;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-height: 80vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+.prev-btn,
+.next-btn {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #2a2ad7;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.5s ease;
+}
+
+.prev-btn::before {
+    content: '\2190';
+}
+
+.next-btn::before {
+    content: '\2192';
+}
+
+.prev-btn:hover::before,
+.next-btn:hover::before {
+    background-color: #e3d479;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1920px) {
+    /* Стили для экранов с разрешением меньше или равным Full HD (1920x1080) */
+    .carousel {
+        max-height: 60vh;
+    }
+
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        bottom: 10px;
+        width: 60px;
+        height: 60px;
+        z-index: 1;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+}
